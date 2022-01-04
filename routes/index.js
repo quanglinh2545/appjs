@@ -1,9 +1,12 @@
-var express = require('express');
-var router = express.Router();
+const newsRouter = require('./news');
+var express = require('express')
+var app = express();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'index' });
-});
+function routeFunc(app) {
+   app.use('/news',newsRouter);
+  // app.get('/news',(req, res) => {
+  //   res.send('hello news');
+  // })
+}
 
-module.exports = router;
+module.exports = routeFunc;
